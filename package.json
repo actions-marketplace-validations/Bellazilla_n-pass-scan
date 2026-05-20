@@ -1,5 +1,5 @@
 {
-  "name": "@n-pass/scan",
+  "name": "n-pass-scan",
   "version": "0.1.0",
   "description": "Open-source secret scanner — GitHub Action + CLI. Bridge to N-Pass Developer Watchtower.",
   "license": "MIT",
