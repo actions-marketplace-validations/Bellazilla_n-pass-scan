@@ -1,0 +1,40 @@
+{
+  "name": "@n-pass/scan",
+  "version": "0.1.0",
+  "description": "Open-source secret scanner — GitHub Action + CLI. Bridge to N-Pass Developer Watchtower.",
+  "license": "MIT",
+  "author": "Nutri Nordic AB <hello@npass.me>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bellazilla/n-pass-scan.git"
+  },
+  "homepage": "https://npass.me/scan",
+  "bin": {
+    "n-pass-scan": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test src/*.test.ts"
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.0",
+    "@actions/github": "^6.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0",
+    "typescript": "^5.6.3"
+  },
+  "keywords": [
+    "security",
+    "secrets",
+    "scanner",
+    "github-actions",
+    "leaked-credentials",
+    "n-pass"
+  ]
+}

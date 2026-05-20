@@ -1,0 +1,38 @@
+name: 'N-Pass Secret Scan'
+description: 'Scan repository diff for leaked credentials (AWS, Stripe, GitHub, OpenAI, and 18 other vendor patterns).'
+author: 'Nutri Nordic AB'
+branding:
+  icon: 'shield'
+  color: 'gray-dark'
+
+inputs:
+  scan-mode:
+    description: 'What to scan: "diff" (changed files in this commit/PR — fast, default) or "full" (entire HEAD tree — slow, monthly audit).'
+    required: false
+    default: 'diff'
+  fail-on:
+    description: 'Minimum severity that causes the action to exit non-zero: critical | high | medium | none.'
+    required: false
+    default: 'high'
+  ignore-paths:
+    description: 'Newline-separated glob patterns to skip (e.g. "test/fixtures/**").'
+    required: false
+    default: ''
+  reporter:
+    description: 'Output format: github (annotations on the PR diff), sarif (uploadable to Code Scanning), or json (stdout only).'
+    required: false
+    default: 'github'
+
+outputs:
+  findings:
+    description: 'Number of findings detected across all severities.'
+  critical-count:
+    description: 'Count of critical-severity findings.'
+  high-count:
+    description: 'Count of high-severity findings.'
+  sarif-path:
+    description: 'When reporter=sarif, the path to the SARIF file. Pair with github/codeql-action/upload-sarif.'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
